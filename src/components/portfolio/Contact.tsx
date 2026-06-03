@@ -1,0 +1,152 @@
+import { useState } from "react";
+import { motion } from "motion/react";
+import { Linkedin, Github, Mail, Send, Check } from "lucide-react";
+import { z } from "zod";
+import { Section } from "./Section";
+
+const schema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Invalid email").max(255),
+  subject: z.string().trim().min(1, "Subject is required").max(150),
+  message: z.string().trim().min(5, "Message is too short").max(1500),
+});
+
+const socials = [
+  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/" },
+  { icon: Github, label: "GitHub", href: "https://github.com/" },
+  { icon: Mail, label: "Email", href: "mailto:joel.kirubainathan@example.com" },
+];
+
+export function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sent, setSent] = useState(false);
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = schema.safeParse(form);
+    if (!result.success) {
+      const errs: Record<string, string> = {};
+      result.error.issues.forEach((i) => {
+        errs[i.path[0] as string] = i.message;
+      });
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
+    setSent(true);
+    setTimeout(() => setSent(false), 4000);
+    setForm({ name: "", email: "", subject: "", message: "" });
+  };
+
+  const field = (name: keyof typeof form, label: string, type = "text") => (
+    <div>
+      <label className="block text-xs font-mono text-cyber-muted tracking-widest mb-2">
+        {label.toUpperCase()}
+      </label>
+      <input
+        type={type}
+        value={form[name]}
+        onChange={(e) => setForm({ ...form, [name]: e.target.value })}
+        className="w-full glass rounded-lg px-4 py-3 text-sm text-white placeholder:text-cyber-muted/50 focus:outline-none focus:border-cyber focus:cyber-glow transition"
+        placeholder={`Your ${label.toLowerCase()}`}
+      />
+      {errors[name] && (
+        <p className="mt-1 text-xs text-red-400">{errors[name]}</p>
+      )}
+    </div>
+  );
+
+  return (
+    <Section
+      id="contact"
+      eyebrow="CONTACT"
+      title="Let's Build a Safer Future"
+      subtitle="Let's connect and build a safer digital future."
+    >
+      <div className="grid lg:grid-cols-5 gap-8">
+        <motion.form
+          onSubmit={submit}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-3 glass rounded-2xl p-8 space-y-5"
+        >
+          <div className="grid sm:grid-cols-2 gap-5">
+            {field("name", "Name")}
+            {field("email", "Email", "email")}
+          </div>
+          {field("subject", "Subject")}
+          <div>
+            <label className="block text-xs font-mono text-cyber-muted tracking-widest mb-2">
+              MESSAGE
+            </label>
+            <textarea
+              rows={5}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              className="w-full glass rounded-lg px-4 py-3 text-sm text-white placeholder:text-cyber-muted/50 focus:outline-none focus:border-cyber focus:cyber-glow transition resize-none"
+              placeholder="Tell me about the opportunity..."
+            />
+            {errors.message && (
+              <p className="mt-1 text-xs text-red-400">{errors.message}</p>
+            )}
+          </div>
+          <button
+            type="submit"
+            disabled={sent}
+            className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-[#0A0F1C] transition hover:scale-[1.02] cyber-glow disabled:opacity-70"
+            style={{ background: "var(--gradient-cyber)" }}
+          >
+            {sent ? (
+              <>
+                <Check className="h-4 w-4" /> Message Sent
+              </>
+            ) : (
+              <>
+                <Send className="h-4 w-4" /> Send Message
+              </>
+            )}
+          </button>
+        </motion.form>
+
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-2 space-y-4"
+        >
+          <div className="glass rounded-2xl p-6">
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Open to Opportunities
+            </h3>
+            <p className="text-sm text-cyber-muted">
+              Actively seeking SOC Analyst, Security Analyst, or Cybersecurity
+              Analyst roles. Let's talk about how I can contribute to your
+              security team.
+            </p>
+          </div>
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              className="glass rounded-xl p-4 flex items-center gap-3 hover:cyber-glow hover:border-cyber transition group"
+            >
+              <div className="rounded-lg bg-cyber-primary/10 p-2.5 group-hover:bg-cyber-primary/20 transition">
+                <s.icon className="h-5 w-5 text-cyber-primary" />
+              </div>
+              <div>
+                <div className="font-mono text-[10px] text-cyber-muted tracking-widest">
+                  CONNECT
+                </div>
+                <div className="text-sm text-white">{s.label}</div>
+              </div>
+            </a>
+          ))}
+        </motion.div>
+      </div>
+    </Section>
+  );
+}
