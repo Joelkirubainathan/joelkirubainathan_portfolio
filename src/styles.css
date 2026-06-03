@@ -63,25 +63,38 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  /* Cybersecurity dark theme */
+  --background: oklch(0.15 0.03 260);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.2 0.04 260);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.2 0.04 260);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.82 0.18 220);
+  --primary-foreground: oklch(0.15 0.03 260);
+  --secondary: oklch(0.55 0.22 260);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.25 0.03 260);
+  --muted-foreground: oklch(0.75 0.03 250);
+  --accent: oklch(0.82 0.18 220);
+  --accent-foreground: oklch(0.15 0.03 260);
+  --destructive: oklch(0.65 0.25 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.82 0.18 220);
+
+  /* Cyber tokens */
+  --cyber-bg: #0A0F1C;
+  --cyber-primary: #00D9FF;
+  --cyber-secondary: #0066FF;
+  --cyber-muted: #A0AEC0;
+  --cyber-glass: rgba(255, 255, 255, 0.05);
+  --cyber-glass-border: rgba(0, 217, 255, 0.2);
+  --gradient-cyber: linear-gradient(135deg, #00D9FF 0%, #0066FF 100%);
+  --gradient-bg: radial-gradient(ellipse at top, rgba(0, 102, 255, 0.15), transparent 60%), radial-gradient(ellipse at bottom, rgba(0, 217, 255, 0.1), transparent 60%);
+  --shadow-glow: 0 0 40px rgba(0, 217, 255, 0.3);
+  --shadow-glow-strong: 0 0 60px rgba(0, 217, 255, 0.5);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
