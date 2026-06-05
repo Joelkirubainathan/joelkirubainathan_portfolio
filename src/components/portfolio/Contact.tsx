@@ -12,9 +12,9 @@ const schema = z.object({
 });
 
 const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/" },
-  { icon: Github, label: "GitHub", href: "https://github.com/" },
-  { icon: Mail, label: "Email", href: "mailto:joel.kirubainathan@example.com" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/joelkirubainathans" },
+  { icon: Github, label: "GitHub", href: "https://github.com/Joelkirubainathan" },
+  { icon: Mail, label: "Email", href: "mailto:joelkirubainathan@gmail.com" },
 ];
 
 export function Contact() {
