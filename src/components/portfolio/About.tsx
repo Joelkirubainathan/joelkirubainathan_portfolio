@@ -1,12 +1,10 @@
 import { motion } from "motion/react";
-import { MapPin, Mail, Phone, CircleCheck, Target } from "lucide-react";
+import { MapPin, Mail, Target } from "lucide-react";
 import { Section } from "./Section";
 
 const info = [
-  { icon: MapPin, label: "Location", value: "India" },
-  { icon: Mail, label: "Email", value: "joel.kirubainathan@example.com" },
-  { icon: Phone, label: "Phone", value: "+91 00000 00000" },
-  { icon: CircleCheck, label: "Availability", value: "Open to Opportunities" },
+  { icon: MapPin, label: "Location", value: "Erode, India" },
+  { icon: Mail, label: "Email", value: "joelkirubainathan@gmail.com" },
 ];
 
 const interests = [
