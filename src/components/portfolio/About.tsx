@@ -69,22 +69,22 @@ export function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4"
+          className="lg:col-span-2 flex flex-col justify-center gap-4"
         >
           {info.map(({ icon: Icon, label, value }) => (
             <div
               key={label}
-              className="glass rounded-xl p-5 hover:cyber-glow transition-all group"
+              className="glass rounded-xl p-4 hover:cyber-glow transition-all group"
             >
-              <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-cyber-primary/10 p-2 group-hover:bg-cyber-primary/20 transition">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-cyber-primary/10 p-2 group-hover:bg-cyber-primary/20 transition shrink-0">
                   <Icon className="h-5 w-5 text-cyber-primary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="font-mono text-[10px] text-cyber-muted tracking-wider">
                     {label.toUpperCase()}
                   </div>
-                  <div className="text-sm text-white mt-1 break-all">{value}</div>
+                  <div className="text-sm text-white mt-0.5 truncate">{value}</div>
                 </div>
               </div>
             </div>
