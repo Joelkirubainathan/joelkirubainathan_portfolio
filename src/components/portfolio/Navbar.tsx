@@ -31,7 +31,7 @@ export function Navbar() {
           <Shield className="h-6 w-6 text-cyber-primary group-hover:rotate-12 transition-transform" />
           <span className="font-mono text-sm tracking-wider">
             <span className="text-white">JOEL</span>
-            <span className="text-cyber-primary">.SEC</span>
+            <span className="text-cyber-primary">.SECOPS</span>
           </span>
         </a>
         <ul className="hidden md:flex items-center gap-8">
