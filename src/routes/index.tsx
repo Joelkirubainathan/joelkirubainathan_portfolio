@@ -8,7 +8,7 @@ import { Certifications } from "@/components/portfolio/Certifications";
 import { Projects } from "@/components/portfolio/Projects";
 import { Experience } from "@/components/portfolio/Experience";
 import { Education } from "@/components/portfolio/Education";
-import { GitHubShowcase } from "@/components/portfolio/GitHubShowcase";
+
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 
@@ -73,7 +73,7 @@ function Index() {
         <Projects />
         <Experience />
         <Education />
-        <GitHubShowcase />
+        
         <Contact />
       </main>
       <Footer />
