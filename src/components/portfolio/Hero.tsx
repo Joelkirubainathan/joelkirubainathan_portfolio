@@ -143,7 +143,7 @@ export function Hero() {
           className="mt-16 flex justify-center"
         >
           <div className="font-mono text-xs text-cyber-muted/60">
-            <span className="text-cyber-primary">$</span> whoami → joel@secops:~#
+            <span className="text-cyber-primary">$</span> whoami → joelkirubainathan:~#
           </div>
         </motion.div>
       </div>
