@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Linkedin, Github, Mail, Send, Check } from "lucide-react";
+import { Linkedin, Github, Mail, Send, Check, Code2 } from "lucide-react";
 import { z } from "zod";
 import { Section } from "./Section";
 
@@ -14,6 +14,7 @@ const schema = z.object({
 const socials = [
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/joelkirubainathans" },
   { icon: Github, label: "GitHub", href: "https://github.com/Joelkirubainathan" },
+  { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/JoelkirubainathanS/" },
   { icon: Mail, label: "Email", href: "mailto:joelkirubainathan@gmail.com" },
 ];
 
