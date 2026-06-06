@@ -28,16 +28,18 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-3 glass rounded-2xl p-8"
         >
-          <div className="flex items-start gap-5 mb-6">
+          <div className="flex items-center gap-5 mb-6">
             <div className="relative shrink-0">
-              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-cyber-primary/60 to-cyber-primary/10 blur-sm" />
-              <img
-                src={joelPhoto.url}
-                alt="Joel Kirubainathan"
-                className="relative h-28 w-28 md:h-32 md:w-32 rounded-2xl object-cover border border-cyber-glass-border"
-              />
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-cyber-primary/70 via-cyber-primary/20 to-transparent blur-md" />
+              <div className="relative h-28 w-28 md:h-32 md:w-32 rounded-full p-[2px] bg-gradient-to-br from-cyber-primary to-cyber-primary/30">
+                <img
+                  src={joelPhoto.url}
+                  alt="Joel Kirubainathan"
+                  className="h-full w-full rounded-full object-cover object-top bg-cyber"
+                />
+              </div>
             </div>
-            <div className="min-w-0 pt-1">
+            <div className="min-w-0">
               <div className="font-mono text-[10px] text-cyber-primary tracking-[0.25em]">
                 // IDENTITY
               </div>
