@@ -4,16 +4,25 @@ import { Section } from "./Section";
 
 const education = [
   {
-    degree: "Bachelor's Degree (Edit me)",
-    institution: "Your Institution Name",
-    year: "Graduation Year",
+    degree: "B.Sc. Computer Science & Applications",
+    institution: "VET Institute of Arts and Science (Co-education) College",
+    year: "2023 – 2026",
+    description:
+      "Focused on Programming, Software Development, Data Structures, and Computer Science. Participated in technical projects and collaborative learning activities.",
     coursework: [
-      "Computer Networks",
-      "Operating Systems",
-      "Cybersecurity Fundamentals",
-      "Programming with Python",
-      "Database Systems",
+      "Programming",
+      "Software Development",
+      "Data Structures",
+      "Computer Science",
     ],
+  },
+  {
+    degree: "Higher Secondary Certificate (Computer Science)",
+    institution: "Geethaanjali All India Senior Secondary School",
+    year: "2021 – 2023",
+    description:
+      "Studied Computer Science, Business Studies, and Social Science. Built foundational technical and analytical skills.",
+    coursework: ["Computer Science", "Business Studies", "Social Science"],
   },
 ];
 
