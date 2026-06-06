@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { MapPin, Mail, Target } from "lucide-react";
 import { Section } from "./Section";
+import joelPhoto from "@/assets/joel.jpeg.asset.json";
 
 const info = [
   { icon: MapPin, label: "Location", value: "Erode, India" },
@@ -27,6 +28,27 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-3 glass rounded-2xl p-8"
         >
+          <div className="flex items-start gap-5 mb-6">
+            <div className="relative shrink-0">
+              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-cyber-primary/60 to-cyber-primary/10 blur-sm" />
+              <img
+                src={joelPhoto.url}
+                alt="Joel Kirubainathan"
+                className="relative h-28 w-28 md:h-32 md:w-32 rounded-2xl object-cover border border-cyber-glass-border"
+              />
+            </div>
+            <div className="min-w-0 pt-1">
+              <div className="font-mono text-[10px] text-cyber-primary tracking-[0.25em]">
+                // IDENTITY
+              </div>
+              <div className="text-xl md:text-2xl font-semibold text-white mt-1">
+                Joel Kirubainathan
+              </div>
+              <div className="text-sm text-cyber-muted mt-0.5">
+                Cybersecurity Analyst · ISC2 Candidate
+              </div>
+            </div>
+          </div>
           <p className="text-cyber-muted leading-relaxed text-lg">
             I am an aspiring{" "}
             <span className="text-cyber-primary font-medium">
