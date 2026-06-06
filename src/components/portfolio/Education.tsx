@@ -53,6 +53,11 @@ export function Education() {
                   </span>
                 </div>
                 <p className="text-sm text-cyber-muted">{e.institution}</p>
+                {e.description && (
+                  <p className="mt-2 text-sm text-cyber-muted/80 leading-relaxed">
+                    {e.description}
+                  </p>
+                )}
                 <div className="mt-4">
                   <div className="font-mono text-[10px] text-cyber-muted tracking-widest mb-2">
                     RELEVANT_COURSEWORK
