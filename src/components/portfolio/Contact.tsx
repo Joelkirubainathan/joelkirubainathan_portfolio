@@ -61,7 +61,7 @@ export function Contact() {
     <Section
       id="contact"
       eyebrow="CONTACT"
-      title="Let's Build a Safer Future"
+      title="Let's Work Together"
       subtitle="Let's connect and build a safer digital future."
     >
       <div className="grid lg:grid-cols-5 gap-8">
