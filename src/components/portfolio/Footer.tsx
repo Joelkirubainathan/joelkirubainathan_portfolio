@@ -10,7 +10,7 @@ export function Footer() {
           <span className="text-cyber-primary">.SECOPS</span>
         </div>
         <p className="text-xs text-cyber-muted">
-          © {new Date().getFullYear()} Joel Kirubainathan · Built with security in mind.
+          © {new Date().getFullYear()} Joel Kirubainathan. All rights reserved.
         </p>
         <p className="text-[10px] font-mono text-cyber-muted/60">
           STATUS: <span className="text-green-400">SECURE</span>
