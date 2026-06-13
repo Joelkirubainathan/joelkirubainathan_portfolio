@@ -12,7 +12,15 @@ import {
 } from "@/components/ui/carousel";
 import { Section } from "./Section";
 
-const certifications = [{
+type Certification = {
+  title: string;
+  issuer: string;
+  description: string;
+  status: string;
+  certificate?: string;
+};
+
+const certifications: Certification[] = [{
   title: "ISC2 Candidate",
   issuer: "International Information System Security Certification Consortium",
   description:
