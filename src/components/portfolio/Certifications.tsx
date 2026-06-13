@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
 import { Award, Lock } from "lucide-react";
+import { useState } from "react";
+import certificateAsset from "@/assets/isc2-candidate.png.asset.json";
+import { Button } from "@/components/ui/button";
 import { Section } from "./Section";
 
 const current = {
@@ -19,6 +22,8 @@ const future = [
 ];
 
 export function Certifications() {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
     <Section
       id="certifications"
@@ -31,18 +36,49 @@ export function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-1 relative glass rounded-2xl p-8 cyber-glow border-cyber overflow-hidden"
+          className="lg:col-span-1 min-h-[360px] [perspective:1200px]"
         >
-          <div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-cyber-primary/10 blur-3xl" />
-          <Award className="h-10 w-10 text-cyber-primary mb-4" />
-          <div className="font-mono text-[10px] text-cyber-primary tracking-widest mb-2">
-            {current.status}
-          </div>
-          <h3 className="text-2xl font-bold text-white">{current.title}</h3>
-          <p className="text-xs text-cyber-muted mt-2">{current.issuer}</p>
-          <p className="mt-4 text-sm text-cyber-muted leading-relaxed">
-            {current.description}
-          </p>
+          <Button
+            type="button"
+            variant="ghost"
+            aria-label={isFlipped ? "Show certification details" : "Show ISC2 certificate"}
+            aria-pressed={isFlipped}
+            onClick={() => setIsFlipped((flipped) => !flipped)}
+            className="group h-full min-h-[360px] w-full whitespace-normal rounded-2xl p-0 text-left hover:bg-transparent"
+          >
+            <motion.div
+              animate={{ rotateY: isFlipped ? 180 : 0 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="relative h-full min-h-[360px] w-full [transform-style:preserve-3d]"
+            >
+              <div className="absolute inset-0 overflow-hidden rounded-2xl border-cyber glass p-8 cyber-glow [backface-visibility:hidden]">
+                <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyber-primary/10 blur-3xl" />
+                <Award className="mb-4 h-10 w-10 text-cyber-primary" />
+                <div className="mb-2 font-mono text-[10px] tracking-widest text-cyber-primary">
+                  {current.status}
+                </div>
+                <h3 className="text-2xl font-bold text-white">{current.title}</h3>
+                <p className="mt-2 text-xs text-cyber-muted">{current.issuer}</p>
+                <p className="mt-4 text-sm leading-relaxed text-cyber-muted">
+                  {current.description}
+                </p>
+                <p className="mt-6 font-mono text-[10px] tracking-widest text-cyber-primary">
+                  CLICK TO VIEW CREDENTIAL
+                </p>
+              </div>
+
+              <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-2xl border-cyber glass p-5 cyber-glow [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                <img
+                  src={certificateAsset.url}
+                  alt="ISC2 Candidate certificate for Joel Kirubainathan"
+                  className="max-h-[280px] w-full rounded-xl object-contain"
+                />
+                <p className="mt-3 font-mono text-[10px] tracking-widest text-cyber-primary">
+                  CLICK TO FLIP BACK
+                </p>
+              </div>
+            </motion.div>
+          </Button>
         </motion.div>
 
         <div className="lg:col-span-2">
