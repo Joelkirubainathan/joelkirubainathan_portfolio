@@ -71,7 +71,7 @@ export function Certifications() {
                 <img
                   src={certificateAsset.url}
                   alt="ISC2 Candidate certificate for Joel Kirubainathan"
-                  className="max-h-[280px] w-full rounded-[60%] object-contain"
+                  className="max-h-[280px] w-full object-contain"
                 />
                 <p className="mt-3 font-mono text-[10px] tracking-widest text-cyber-primary">
                   CLICK TO FLIP BACK
