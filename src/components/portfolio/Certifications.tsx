@@ -90,8 +90,7 @@ export function Certifications() {
                       transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                       className="relative h-full w-full [transform-style:preserve-3d]"
                     >
-                      <div className="absolute inset-0 overflow-hidden rounded-2xl border-cyber glass p-8 cyber-glow [backface-visibility:hidden]">
-                        <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyber-primary/10 blur-3xl" />
+                      <div className="absolute inset-0 overflow-hidden rounded-2xl border-cyber glass p-8 [backface-visibility:hidden]">
                         <Award className="mb-5 h-10 w-10 text-cyber-primary" />
                         <div className="mb-2 font-mono text-[10px] tracking-widest text-cyber-primary">
                           {certification.status}
@@ -106,7 +105,7 @@ export function Certifications() {
                         </p>
                       </div>
 
-                      <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-2xl border-cyber glass p-6 cyber-glow [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-2xl border-cyber glass p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]">
                         {certification.certificate ? (
                           <img
                             src={certification.certificate}
