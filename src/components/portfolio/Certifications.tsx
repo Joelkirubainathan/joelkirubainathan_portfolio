@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Award, Lock } from "lucide-react";
+import { Award } from "lucide-react";
 import { useState } from "react";
 import certificateAsset from "@/assets/isc2-candidate.png.asset.json";
 import { Button } from "@/components/ui/button";
