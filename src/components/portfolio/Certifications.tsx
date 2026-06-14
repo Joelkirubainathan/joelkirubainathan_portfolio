@@ -81,21 +81,11 @@ export function Certifications() {
                       </div>
 
                       <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-2xl border-cyber glass p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                        {certification.certificate ? (
-                          <img
-                            src={certification.certificate}
-                            alt={`${certification.title} certificate for Joel Kirubainathan`}
-                            className="max-h-[285px] w-full object-contain"
-                          />
-                        ) : (
-                          <div className="flex flex-col items-center text-center">
-                            <Lock className="mb-5 h-10 w-10 text-cyber-primary" />
-                            <h4 className="text-xl font-bold text-white">{certification.title}</h4>
-                            <p className="mt-3 text-sm leading-relaxed text-cyber-muted">
-                              Certificate will be displayed here after completion.
-                            </p>
-                          </div>
-                        )}
+                        <img
+                          src={certification.certificate}
+                          alt={`${certification.title} certificate for Joel Kirubainathan`}
+                          className="max-h-[285px] w-full object-contain"
+                        />
                         <p className="mt-5 font-mono text-[10px] tracking-widest text-cyber-primary">
                           CLICK TO FLIP BACK
                         </p>
