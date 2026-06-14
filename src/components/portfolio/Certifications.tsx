@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Award, Lock } from "lucide-react";
+import { Award } from "lucide-react";
 import { useState } from "react";
 import certificateAsset from "@/assets/isc2-candidate.png.asset.json";
 import { Button } from "@/components/ui/button";
@@ -27,31 +27,6 @@ const certifications: Certification[] = [{
     "Actively pursuing professional cybersecurity certification and strengthening foundational security knowledge.",
   status: "IN PROGRESS",
   certificate: certificateAsset.url,
-}, {
-  title: "ISC2 CC",
-  issuer: "ISC2",
-  description: "Certified in Cybersecurity — foundational knowledge across core security domains.",
-  status: "PLANNED",
-}, {
-  title: "CompTIA Security+",
-  issuer: "CompTIA",
-  description: "Industry-standard baseline certification for practical cybersecurity skills.",
-  status: "PLANNED",
-}, {
-  title: "CEH",
-  issuer: "EC-Council",
-  description: "Certified Ethical Hacker — offensive security concepts and ethical hacking methods.",
-  status: "PLANNED",
-}, {
-  title: "CySA+",
-  issuer: "CompTIA",
-  description: "Cybersecurity Analyst certification focused on threat detection and response.",
-  status: "PLANNED",
-}, {
-  title: "CISSP",
-  issuer: "ISC2",
-  description: "A future long-term goal covering advanced security leadership and architecture.",
-  status: "FUTURE GOAL",
 }];
 
 export function Certifications() {
@@ -106,21 +81,11 @@ export function Certifications() {
                       </div>
 
                       <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-2xl border-cyber glass p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                        {certification.certificate ? (
-                          <img
-                            src={certification.certificate}
-                            alt={`${certification.title} certificate for Joel Kirubainathan`}
-                            className="max-h-[285px] w-full object-contain"
-                          />
-                        ) : (
-                          <div className="flex flex-col items-center text-center">
-                            <Lock className="mb-5 h-10 w-10 text-cyber-primary" />
-                            <h4 className="text-xl font-bold text-white">{certification.title}</h4>
-                            <p className="mt-3 text-sm leading-relaxed text-cyber-muted">
-                              Certificate will be displayed here after completion.
-                            </p>
-                          </div>
-                        )}
+                        <img
+                          src={certification.certificate}
+                          alt={`${certification.title} certificate for Joel Kirubainathan`}
+                          className="max-h-[285px] w-full object-contain"
+                        />
                         <p className="mt-5 font-mono text-[10px] tracking-widest text-cyber-primary">
                           CLICK TO FLIP BACK
                         </p>
