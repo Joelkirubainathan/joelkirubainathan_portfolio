@@ -27,31 +27,6 @@ const certifications: Certification[] = [{
     "Actively pursuing professional cybersecurity certification and strengthening foundational security knowledge.",
   status: "IN PROGRESS",
   certificate: certificateAsset.url,
-}, {
-  title: "ISC2 CC",
-  issuer: "ISC2",
-  description: "Certified in Cybersecurity — foundational knowledge across core security domains.",
-  status: "PLANNED",
-}, {
-  title: "CompTIA Security+",
-  issuer: "CompTIA",
-  description: "Industry-standard baseline certification for practical cybersecurity skills.",
-  status: "PLANNED",
-}, {
-  title: "CEH",
-  issuer: "EC-Council",
-  description: "Certified Ethical Hacker — offensive security concepts and ethical hacking methods.",
-  status: "PLANNED",
-}, {
-  title: "CySA+",
-  issuer: "CompTIA",
-  description: "Cybersecurity Analyst certification focused on threat detection and response.",
-  status: "PLANNED",
-}, {
-  title: "CISSP",
-  issuer: "ISC2",
-  description: "A future long-term goal covering advanced security leadership and architecture.",
-  status: "FUTURE GOAL",
 }];
 
 export function Certifications() {
