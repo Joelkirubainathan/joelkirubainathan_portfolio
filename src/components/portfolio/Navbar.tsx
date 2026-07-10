@@ -23,7 +23,9 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass py-3" : "py-5"
+        scrolled || open
+          ? "bg-cyber-bg/95 backdrop-blur-md border-b border-cyber-glass-border py-3 shadow-lg shadow-black/20"
+          : "py-5"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
@@ -55,14 +57,14 @@ export function Navbar() {
         </button>
       </nav>
       {open && (
-        <div className="md:hidden glass mt-3 mx-6 rounded-lg p-4">
-          <ul className="flex flex-col gap-3">
+        <div className="md:hidden bg-cyber-bg/95 backdrop-blur-md border-b border-cyber-glass-border mt-3 mx-4 rounded-xl p-4 shadow-xl shadow-black/30">
+          <ul className="flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block text-sm text-cyber-muted hover:text-cyber-primary py-2"
+                  className="block text-sm font-medium text-cyber-muted hover:text-cyber-primary hover:bg-cyber-primary/10 rounded-lg px-3 py-3 transition-colors"
                 >
                   {l.label}
                 </a>
