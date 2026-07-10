@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { Section } from "./Section";
 
 const timeline = [
@@ -30,6 +31,13 @@ const timeline = [
 ];
 
 export function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 85%", "end 15%"],
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
     <Section
       id="experience"
@@ -37,8 +45,14 @@ export function Experience() {
       title="Experience & Learning Path"
       subtitle="A continuous timeline of upskilling in offensive and defensive security."
     >
-      <div className="relative max-w-3xl mx-auto">
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyber-primary via-cyber-primary/30 to-transparent md:-translate-x-1/2" />
+      <div ref={containerRef} className="relative max-w-3xl mx-auto">
+        {/* Base track */}
+        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-white/10 rounded-full" />
+        {/* Animated progress line */}
+        <motion.div
+          style={{ height: lineHeight }}
+          className="absolute left-4 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 rounded-full bg-gradient-to-b from-cyber-primary via-cyber-secondary to-cyber-primary shadow-[0_0_12px_rgba(0,217,255,0.8)]"
+        />
         <div className="space-y-10">
           {timeline.map((t, i) => (
             <motion.div
