@@ -64,7 +64,7 @@ export function Navbar() {
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block text-sm font-medium text-cyber-muted hover:text-cyber-primary hover:bg-cyber-primary/10 rounded-lg px-3 py-3 transition-colors"
+                  className="block text-sm font-medium text-white hover:text-cyber-primary hover:bg-cyber-primary/10 rounded-lg px-3 py-3 transition-colors"
                 >
                   {l.label}
                 </a>
