@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { Section } from "./Section";
 
 const timeline = [
@@ -30,6 +31,12 @@ const timeline = [
 ];
 
 export function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 85%", "end 15%"],
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   return (
     <Section
       id="experience"
@@ -37,9 +44,14 @@ export function Experience() {
       title="Experience & Learning Path"
       subtitle="A continuous timeline of upskilling in offensive and defensive security."
     >
-      <div className="relative max-w-3xl mx-auto">
-        {/* Static timeline line */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-gradient-to-b from-cyber-primary via-cyber-secondary to-cyber-primary rounded-full shadow-[0_0_12px_rgba(0,217,255,0.6)]" />
+      <div ref={containerRef} className="relative max-w-3xl mx-auto">
+        {/* Base track */}
+        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-white/20 rounded-full" />
+        {/* Scroll-progress line */}
+        <motion.div
+          style={{ height: lineHeight }}
+          className="absolute left-4 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 bg-white rounded-full"
+        />
         <div className="space-y-10">
           {timeline.map((t, i) => (
             <motion.div
@@ -52,7 +64,7 @@ export function Experience() {
                 i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-cyber-primary cyber-glow animate-pulse-glow ring-4 ring-[#0A0F1C]" />
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-white ring-4 ring-[#0A0F1C]" />
               <div className="pl-12 md:pl-0 md:w-1/2 md:px-8">
                 <div className="glass rounded-xl p-5 hover:cyber-glow transition">
                   <div className="font-mono text-[10px] text-cyber-primary tracking-widest">
