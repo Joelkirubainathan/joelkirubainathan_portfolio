@@ -64,7 +64,7 @@ export function Experience() {
                 i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-cyber-primary cyber-glow animate-pulse-glow ring-4 ring-[#0A0F1C]" />
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-white ring-4 ring-[#0A0F1C]" />
               <div className="pl-12 md:pl-0 md:w-1/2 md:px-8">
                 <div className="glass rounded-xl p-5 hover:cyber-glow transition">
                   <div className="font-mono text-[10px] text-cyber-primary tracking-widest">
