@@ -35,6 +35,11 @@ export function Contact() {
       return;
     }
     setErrors({});
+    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
+    const mailto = `mailto:joelkirubainathan@gmail.com?subject=${encodeURIComponent(
+      form.subject,
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
     setSent(true);
     setTimeout(() => setSent(false), 4000);
     setForm({ name: "", email: "", subject: "", message: "" });
