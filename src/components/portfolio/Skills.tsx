@@ -63,8 +63,9 @@ export function Skills() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.5, delay: gi * 0.08 }}
-            className="glass rounded-2xl p-6 hover:cyber-glow transition-all"
+            className="glass rounded-2xl p-6 hover:cyber-glow transition-all cursor-pointer"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="rounded-lg p-2.5 bg-cyber-primary/10">
