@@ -50,7 +50,7 @@ export function Experience() {
         {/* Scroll-progress line */}
         <motion.div
           style={{ height: lineHeight }}
-          className="absolute left-4 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 bg-white rounded-full"
+          className="absolute left-4 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 bg-white rounded-full z-10"
         />
         <div className="space-y-10">
           {timeline.map((t, i) => (
