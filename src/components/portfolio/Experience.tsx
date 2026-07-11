@@ -48,11 +48,11 @@ export function Experience() {
         {/* All timeline items except the last one */}
         <div className="relative space-y-10 pb-10">
           {/* Base track */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-white/20 rounded-full" />
+          <div className="absolute left-4 md:left-1/2 top-2 -bottom-2 w-[2px] md:-translate-x-1/2 bg-white/20 rounded-full" />
           {/* Scroll-progress line */}
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute left-4 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 bg-white rounded-full z-10"
+            className="absolute left-4 md:left-1/2 top-2 w-[2px] md:-translate-x-1/2 bg-white rounded-full z-10"
           />
           {timeline.slice(0, -1).map((t, i) => (
             <motion.div
