@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +37,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+  // Error logged to console above
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,19 +75,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { title: "Joel Kirubainathan | Cybersecurity Analyst & SOC Analyst Portfolio" },
+      {
+        name: "description",
+        content:
+          "Joel Kirubainathan – Cybersecurity Analyst, ISC2 Candidate, Python Programmer. Portfolio showcasing cybersecurity skills, certifications, and projects.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Joel Kirubainathan, joelkirubainathan, joelkirubainathans, joel s, joel kirubainathan s, joelkirubainathan cybersecurity, joelkirubainathan portfolio, Cybersecurity Portfolio, SOC Analyst, Security Analyst, ISC2 Candidate, Python Automation, Network Security, Vulnerability Assessment, Wireshark, Nmap, Kali Linux, Threat Detection, Incident Response, Erode, Tamil Nadu, India",
+      },
+      { name: "author", content: "Joel Kirubainathan" },
+      { name: "robots", content: "index, follow" },
+      { name: "google-site-verification", content: "google-site-verification-placeholder" },
+      { name: "theme-color", content: "#0A0F1C" },
+      { property: "og:title", content: "Joel Kirubainathan | Cybersecurity Analyst Portfolio" },
+      {
+        property: "og:description",
+        content:
+          "Joel Kirubainathan – Cybersecurity Analyst, ISC2 Candidate, Python Programmer. Specialized in Threat Detection, Incident Response, and Vulnerability Assessment.",
+      },
+      { property: "og:type", content: "profile" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
       },
     ],
   }),
@@ -120,6 +142,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster />
     </QueryClientProvider>
   );
 }

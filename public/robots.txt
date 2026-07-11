@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://joelkirubainathan.com/sitemap.xml

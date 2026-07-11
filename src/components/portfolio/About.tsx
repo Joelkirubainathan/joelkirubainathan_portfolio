@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { MapPin, Mail, Target } from "lucide-react";
 import { Section } from "./Section";
-import joelPhoto from "@/assets/joel.jpeg.asset.json";
+import joelPhoto from "@/assets/joel.jpeg";
 
 const info = [
   { icon: MapPin, label: "Location", value: "Erode, India" },
@@ -33,7 +33,7 @@ export function About() {
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-cyber-primary/70 via-cyber-primary/20 to-transparent blur-md" />
               <div className="relative h-28 w-28 md:h-32 md:w-32 rounded-full p-[2px] bg-gradient-to-br from-cyber-primary to-cyber-primary/30">
                 <img
-                  src={joelPhoto.url}
+                  src={joelPhoto}
                   alt="Joel Kirubainathan"
                   className="h-full w-full rounded-full object-cover object-top bg-cyber"
                 />

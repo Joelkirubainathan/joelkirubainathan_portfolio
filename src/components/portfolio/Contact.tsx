@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Linkedin, Github, Mail, Send, Check, Code2 } from "lucide-react";
+import { Linkedin, Github, Mail, Send, Check, Code2, Loader2 } from "lucide-react";
 import { z } from "zod";
 import { Section } from "./Section";
+import { toast } from "sonner";
+
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string;
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -22,8 +25,9 @@ export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
@@ -35,14 +39,41 @@ export function Contact() {
       return;
     }
     setErrors({});
-    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
-    const mailto = `mailto:joelkirubainathan@gmail.com?subject=${encodeURIComponent(
-      form.subject,
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+          from_name: "Joel Kirubainathan Portfolio",
+        }),
+      });
+
+      const resData = await response.json();
+
+      if (resData.success) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        setSent(true);
+        setForm({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setSent(false), 4000);
+      } else {
+        throw new Error(resData.message || "Failed to send message via Web3Forms.");
+      }
+    } catch (err: any) {
+      console.error("Web3Forms error:", err);
+      toast.error(err.message || "Failed to send message. Please try again or email me directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const field = (name: keyof typeof form, label: string, type = "text") => (
@@ -100,11 +131,15 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            disabled={sent}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-[#0A0F1C] transition hover:scale-[1.02] cyber-glow disabled:opacity-70"
+            disabled={loading || sent}
+            className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-[#0A0F1C] transition hover:scale-[1.02] cyber-glow disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
             style={{ background: "var(--gradient-cyber)" }}
           >
-            {sent ? (
+            {loading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" /> Sending Message...
+              </>
+            ) : sent ? (
               <>
                 <Check className="h-4 w-4" /> Message Sent
               </>
@@ -156,3 +191,4 @@ export function Contact() {
     </Section>
   );
 }
+

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Award } from "lucide-react";
-import certificateAsset from "@/assets/isc2-candidate.png.asset.json";
+import certificateAsset from "@/assets/isc2-candidate.png";
 import { Section } from "./Section";
 
 export function Certifications() {
@@ -34,7 +34,7 @@ export function Certifications() {
 
           <div className="flex shrink-0 items-center justify-center">
             <img
-              src={certificateAsset.url}
+              src={certificateAsset}
               alt="ISC2 Candidate certificate for Joel Kirubainathan"
               className="max-h-[220px] w-auto object-contain"
             />
