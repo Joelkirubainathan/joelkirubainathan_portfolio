@@ -45,15 +45,16 @@ export function Experience() {
       subtitle="A continuous timeline of upskilling in offensive and defensive security."
     >
       <div ref={containerRef} className="relative max-w-3xl mx-auto">
-        {/* Base track */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-white/20 rounded-full" />
-        {/* Scroll-progress line */}
-        <motion.div
-          style={{ height: lineHeight }}
-          className="absolute left-4 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 bg-white rounded-full z-10"
-        />
-        <div className="space-y-10">
-          {timeline.map((t, i) => (
+        {/* All timeline items except the last one */}
+        <div className="relative space-y-10 pb-10">
+          {/* Base track */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-white/20 rounded-full" />
+          {/* Scroll-progress line */}
+          <motion.div
+            style={{ height: lineHeight }}
+            className="absolute left-4 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 bg-white rounded-full z-10"
+          />
+          {timeline.slice(0, -1).map((t, i) => (
             <motion.div
               key={t.title}
               initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
@@ -79,6 +80,36 @@ export function Experience() {
             </motion.div>
           ))}
         </div>
+        {/* Last timeline item */}
+        {(() => {
+          const last = timeline[timeline.length - 1];
+          const i = timeline.length - 1;
+          return (
+            <motion.div
+              key={last.title}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className={`relative flex md:items-center ${
+                i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
+            >
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-white ring-4 ring-[#0A0F1C]" />
+              <div className="pl-12 md:pl-0 md:w-1/2 md:px-8">
+                <div className="glass rounded-xl p-5 hover:cyber-glow transition">
+                  <div className="font-mono text-[10px] text-cyber-primary tracking-widest">
+                    {last.year}
+                  </div>
+                  <h3 className="mt-1 font-semibold text-white">{last.title}</h3>
+                  <p className="mt-2 text-sm text-cyber-muted leading-relaxed">
+                    {last.body}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })()}
       </div>
     </Section>
   );
