@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Joel Kirubainathan" },
       { name: "robots", content: "index, follow" },
-      { name: "google-site-verification", content: "google-site-verification-placeholder" },
+      { name: "google-site-verification", content: "mbQl7c7ynRaRbW80GZ-Owy2rvzZmdqr_GPqwlzWXiW0" },
       { name: "theme-color", content: "#0A0F1C" },
       { property: "og:title", content: "Joel Kirubainathan | Cybersecurity Analyst Portfolio" },
       {
