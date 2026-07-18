@@ -98,8 +98,8 @@ export function Contact() {
     <Section
       id="contact"
       eyebrow="CONTACT"
-      title="Let's Work Together"
-      subtitle="Let's connect and build a safer digital future."
+      title="Let's Connect"
+      subtitle="Whether you're looking to collaborate on a project, discuss a job opportunity, or simply want to exchange ideas, I'd love to hear from you."
     >
       <div className="grid lg:grid-cols-5 gap-8">
         <motion.form
@@ -191,4 +191,4 @@ export function Contact() {
     </Section>
   );
 }
-
+

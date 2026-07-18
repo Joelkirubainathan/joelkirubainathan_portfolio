@@ -34,7 +34,10 @@ export function About() {
               <div className="relative h-28 w-28 md:h-32 md:w-32 rounded-full p-[2px] bg-gradient-to-br from-cyber-primary to-cyber-primary/30">
                 <img
                   src={joelPhoto}
-                  alt="Joel Kirubainathan"
+                  alt="Joel Kirubainathan | Cybersecurity & SOC Analyst Portfolio"
+                  width={128}
+                  height={128}
+                  fetchPriority="high"
                   className="h-full w-full rounded-full object-cover object-top bg-cyber"
                 />
               </div>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&amp;display=swap');
+      .jk-text {
+        font-family: 'Fredoka', 'Arial Rounded MT Bold', sans-serif;
+        font-weight: 700;
+        font-size: 56px;
+        fill: #00D9FF;
+        letter-spacing: -2px;
+      }
+    </style>
+  </defs>
+  <rect width="100" height="100" rx="20" fill="#0A0F1C"/>
+  <text x="48%" y="58%" dominant-baseline="middle" text-anchor="middle" class="jk-text">JK</text>
+</svg>

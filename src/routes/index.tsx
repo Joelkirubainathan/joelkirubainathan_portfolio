@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "Joel Kirubainathan, joelkirubainathan, joelkirubainathans, joel s, joel kirubainathan s, joelkirubainathan cybersecurity, joelkirubainathan portfolio, Cybersecurity Portfolio, SOC Analyst, Security Analyst, ISC2 Candidate, Python Automation, Network Security, Vulnerability Assessment, Wireshark, Nmap, Kali Linux, Threat Detection, Incident Response, Erode, Tamil Nadu, India",
+          "Joel Kirubainathan, joelkirubainathan, joelkirubainathans, joel s, joel kirubainathan s, who is joel kirubainathan, hire joel kirubainathan, joel kirubainathan resume, joelkirubainathan cybersecurity, joelkirubainathan portfolio, Cybersecurity Portfolio, SOC Analyst, Security Analyst, ISC2 Candidate, Python Automation, Network Security, Vulnerability Assessment, Wireshark, Nmap, Kali Linux, Threat Detection, Incident Response, Erode, Tamil Nadu, India",
       },
       { name: "author", content: "Joel Kirubainathan" },
       { name: "robots", content: "index, follow" },
@@ -44,6 +44,8 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "profile" },
       { property: "og:url", content: siteUrl },
       { property: "og:image", content: ogImageUrl },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:site_name", content: "Joel Kirubainathan Portfolio" },
       { property: "profile:first_name", content: "Joel" },
       { property: "profile:last_name", content: "Kirubainathan" },
       { property: "profile:username", content: "Joelkirubainathan" },
@@ -56,6 +58,7 @@ export const Route = createFileRoute("/")({
           "Cybersecurity Professional, Certified ISC2 Candidate, Python Programmer, and Network Security Analyst.",
       },
       { name: "twitter:image", content: ogImageUrl },
+      { name: "twitter:creator", content: "@Joelkirubainathan" },
     ],
     links: [{ rel: "canonical", href: siteUrl }],
     scripts: [
@@ -69,7 +72,7 @@ export const Route = createFileRoute("/")({
           image: ogImageUrl,
           gender: "male",
           email: "joelkirubainathan@gmail.com",
-          jobTitle: "Cybersecurity Analyst",
+          jobTitle: ["Cybersecurity Analyst", "SOC Analyst", "Security Analyst"],
           address: {
             "@type": "PostalAddress",
             addressLocality: "Erode",
@@ -80,15 +83,26 @@ export const Route = createFileRoute("/")({
             "@type": "EducationalOrganization",
             name: "VET Institute of Arts and Science (Co-education) College",
           },
-          hasCredential: {
-            "@type": "EducationalOccupationalCredential",
-            credentialCategory: "Certification",
-            name: "ISC2 Candidate",
-            recognizedBy: {
-              "@type": "Organization",
-              name: "International Information System Security Certification Consortium (ISC2)",
+          hasCredential: [
+            {
+              "@type": "EducationalOccupationalCredential",
+              credentialCategory: "Certification",
+              name: "ISC2 Candidate",
+              recognizedBy: {
+                "@type": "Organization",
+                name: "International Information System Security Certification Consortium (ISC2)",
+              },
             },
-          },
+            {
+              "@type": "EducationalOccupationalCredential",
+              credentialCategory: "Certification",
+              name: "Claude Code 101",
+              recognizedBy: {
+                "@type": "Organization",
+                name: "Anthropic",
+              },
+            },
+          ],
           sameAs: [
             "https://www.linkedin.com/in/joelkirubainathans",
             "https://github.com/Joelkirubainathan",
@@ -107,9 +121,11 @@ export const Route = createFileRoute("/")({
             "Kali Linux",
             "SIEM",
             "Bash Scripting",
+            "AI-Assisted Coding",
+            "Agentic Workflows",
           ],
           description:
-            "Aspiring Cybersecurity Professional, ISC2 Candidate, and Network Security Specialist focusing on Threat Analysis, Security Operations, and Python Automation.",
+            "Aspiring Cybersecurity Professional, SOC Analyst, and Network Security Specialist focusing on Threat Analysis, Security Operations, and Python Automation.",
         }),
       },
       {
@@ -148,7 +164,48 @@ export const Route = createFileRoute("/")({
             ]
           }
         }),
-      }
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is Joel Kirubainathan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Joel Kirubainathan is an aspiring Cybersecurity Professional and SOC Analyst based in Erode, Tamil Nadu, India. He holds a Bachelor's degree from VET Institute of Arts and Science and is recognized as an ISC2 Candidate, specializing in network security, threat detection, and Python-based security automation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What certifications does Joel Kirubainathan hold?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Joel Kirubainathan is an official ISC2 Candidate actively preparing for professional cybersecurity certifications. He also holds a Claude Code 101 Certificate of Completion from Anthropic, reflecting expertise in AI-assisted development and automated agentic coding workflows."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What cybersecurity roles is Joel Kirubainathan available for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Joel is looking for entry-level opportunities in modern Security Operations Centers (SOC) and cybersecurity teams. Key available roles include SOC Analyst (L1), Security Analyst, Cybersecurity Associate, Network Security Analyst, and Python Automation Specialist."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I contact or hire Joel Kirubainathan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can contact Joel directly through the Contact Form on this portfolio, email him at joelkirubainathan@gmail.com, or connect via LinkedIn (linkedin.com/in/joelkirubainathans). He is open to remote roles, as well as on-site opportunities in Erode, Chennai, Bangalore, and across India."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: Index,
@@ -167,7 +224,6 @@ function Index() {
         <Projects />
         <Experience />
         <Education />
-        
         <Contact />
       </main>
       <Footer />
