@@ -14,7 +14,7 @@ import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import joelPhoto from "@/assets/joel.jpeg";
 
-const siteUrl = "https://joelkirubainathan.com"; // Default portfolio domain
+const siteUrl = "https://joelkirubainathan.vercel.app"; // Default portfolio domain
 const joelPhotoUrl = typeof joelPhoto === "string" ? joelPhoto : (joelPhoto as any)?.src || "";
 const ogImageUrl = joelPhotoUrl.startsWith("http") ? joelPhotoUrl : `${siteUrl}${joelPhotoUrl}`;
 
