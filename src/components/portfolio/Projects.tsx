@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Github, ExternalLink, ShieldAlert, Radar, FileSearch, Network } from "lucide-react";
+import { Github, ShieldAlert, Radar, FileSearch, Key } from "lucide-react";
 import { Section } from "./Section";
 
 const projects = [
@@ -13,7 +13,6 @@ const projects = [
     tech: ["Python", "Nmap", "Socket", "Reporting"],
     features: ["Service detection", "CVE mapping", "PDF reports"],
     github: "#",
-    demo: "#",
   },
   {
     title: "Port Scanner",
@@ -24,7 +23,6 @@ const projects = [
     tech: ["Python", "Threading", "Sockets"],
     features: ["TCP/UDP scan", "Banner grabbing", "Fast multi-threaded"],
     github: "#",
-    demo: "#",
   },
   {
     title: "Security Log Analyzer",
@@ -35,22 +33,20 @@ const projects = [
     tech: ["Python", "Regex", "Pandas"],
     features: ["Anomaly detection", "Alerting", "Dashboard export"],
     github: "#",
-    demo: "#",
   },
   {
-    title: "Packet Analysis Lab",
-    icon: Network,
-    category: "Network",
+    title: "Personal Password Wordlist Generator",
+    icon: Key,
+    category: "Security",
     description:
-      "Used Wireshark to dissect network traffic, identify protocol anomalies and potential threats.",
-    tech: ["Wireshark", "TCP/IP", "PCAP"],
-    features: ["Deep packet inspection", "Threat hunting", "Lab writeups"],
-    github: "#",
-    demo: "#",
+      "Python-based CLI tool that generates highly customized password wordlists for security audits and penetration testing.",
+    tech: ["Python", "CLI", "Security"],
+    features: ["Target profiling", "Leet speak mutations", "Custom permutations"],
+    github: "https://github.com/Joelkirubainathan/personal-password-wordlist-generator.git",
   },
 ];
 
-const filters = ["All", "Security", "Reconnaissance", "Monitoring", "Network"];
+const filters = ["All", "Security", "Reconnaissance", "Monitoring"];
 
 export function Projects() {
   const [active, setActive] = useState("All");
@@ -141,12 +137,6 @@ export function Projects() {
                 className="inline-flex items-center gap-1.5 text-xs text-cyber-muted hover:text-cyber-primary transition"
               >
                 <Github className="h-3.5 w-3.5" /> Code
-              </a>
-              <a
-                href={p.demo}
-                className="inline-flex items-center gap-1.5 text-xs text-cyber-muted hover:text-cyber-primary transition"
-              >
-                <ExternalLink className="h-3.5 w-3.5" /> Live Demo
               </a>
             </div>
           </motion.article>
