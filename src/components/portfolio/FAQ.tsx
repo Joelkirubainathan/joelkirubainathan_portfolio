@@ -10,7 +10,7 @@ const FAQS = [
   },
   {
     question: "What certifications does Joel Kirubainathan hold?",
-    answer: "Joel Kirubainathan is an official ISC2 Candidate actively preparing for professional cybersecurity certifications. He also holds a Claude Code 101 Certificate of Completion from Anthropic, reflecting expertise in AI-assisted development and automated agentic coding workflows.",
+    answer: "Joel Kirubainathan is an official ISC2 Candidate actively preparing for professional cybersecurity certifications. He also holds a Linux Unhatched certification from Cisco Networking Academy and a Claude Code 101 Certificate of Completion from Anthropic.",
   },
   {
     question: "What cybersecurity roles is Joel Kirubainathan available for?",

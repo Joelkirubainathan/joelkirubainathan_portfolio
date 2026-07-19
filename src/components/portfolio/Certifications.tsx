@@ -27,6 +27,15 @@ const CERTIFICATIONS: CertificationItem[] = [
     image: certificateAsset,
   },
   {
+    id: "linux-unhatched",
+    title: "Linux Unhatched",
+    issuer: "Cisco Networking Academy",
+    status: "COMPLETED",
+    statusType: "completed",
+    description: "Acquired foundational knowledge of Linux command line, system configuration, permissions, and open-source concepts.",
+    type: "rendered",
+  },
+  {
     id: "claude-code",
     title: "Claude Code 101",
     issuer: "Anthropic",
@@ -78,6 +87,94 @@ function ClaudeCodeCertificate() {
       <div className="text-center">
         <span className="font-sans text-[8px] md:text-[11px] font-black tracking-[0.25em] text-black/90">
           ANTHROP\C
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function LinuxUnhatchedCertificate() {
+  return (
+    <div className="relative flex aspect-square h-[150px] w-[150px] md:h-[220px] md:w-[220px] flex-col justify-between rounded-2xl bg-[#61b62f] p-3 text-white shadow-lg border border-black/10 select-none overflow-hidden">
+      {/* Top Section: Cisco Logo & Networking Academy Text */}
+      <div className="flex items-start justify-between gap-1.5 w-full">
+        {/* Cisco Signal Logo (SVG) */}
+        <div className="flex flex-col gap-0.5 mt-0.5 md:mt-1">
+          {/* 9 vertical bars for Cisco logo */}
+          <div className="flex items-end justify-center gap-[1.5px] md:gap-[2px] h-[12px] md:h-[20px]">
+            <span className="w-[1.2px] md:w-[1.5px] h-[30%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[55%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[80%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[55%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[100%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[55%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[80%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[55%] bg-white rounded-full"></span>
+            <span className="w-[1.2px] md:w-[1.5px] h-[30%] bg-white rounded-full"></span>
+          </div>
+          {/* CISCO wordmark */}
+          <span className="font-sans text-[5px] md:text-[8px] font-black tracking-widest text-white leading-none">
+            CISCO
+          </span>
+        </div>
+
+        {/* Networking Academy text */}
+        <div className="flex flex-col text-left text-[#0a2540] font-medium leading-tight">
+          <span className="text-[7px] md:text-[11px] font-bold leading-none">Networking</span>
+          <span className="text-[7px] md:text-[11px] font-bold leading-none mt-0.5">Academy</span>
+        </div>
+      </div>
+
+      {/* Verified Badge */}
+      <div className="absolute top-[32%] left-3 z-20">
+        <div className="rounded-full bg-[#051d38] px-1.5 md:px-2.5 py-0.5 border border-white/10 shadow-sm">
+          <span className="text-[5px] md:text-[8px] font-bold tracking-wider text-white uppercase">
+            Verified
+          </span>
+        </div>
+      </div>
+
+      {/* Wave background covering middle/bottom */}
+      <div className="absolute inset-0 top-[28%] z-10 flex flex-col justify-end overflow-hidden">
+        <svg
+          viewBox="0 0 200 150"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full scale-[1.05] origin-bottom object-cover"
+        >
+          {/* Base fill/background for waves zone */}
+          <rect width="200" height="150" fill="#61b62f" />
+          
+          {/* Wave 1 - Darker Green */}
+          <path
+            d="M0 40 C60 10, 120 70, 200 30 L200 150 L0 150 Z"
+            fill="#1d6614"
+          />
+          
+          {/* Wave 2 - Medium/Vibrant Green */}
+          <path
+            d="M0 65 C70 40, 130 90, 200 55 L200 150 L0 150 Z"
+            fill="#308a1e"
+          />
+          
+          {/* Wave 3 - Lighter Green */}
+          <path
+            d="M0 90 C80 65, 125 110, 200 80 L200 150 L0 150 Z"
+            fill="#78c142"
+          />
+
+          {/* Bottom White Wave */}
+          <path
+            d="M0 115 C70 90, 130 135, 200 102 L200 150 L0 150 Z"
+            fill="#ffffff"
+          />
+        </svg>
+      </div>
+
+      {/* Bottom Text Layer */}
+      <div className="absolute bottom-2 right-3 md:bottom-4 md:right-4 z-20 flex flex-col items-end">
+        <span className="font-sans text-[8px] md:text-[12px] font-extrabold text-[#051d38] tracking-wide">
+          Linux Unhatched
         </span>
       </div>
     </div>
@@ -179,6 +276,8 @@ export function Certifications() {
                       alt={`${cert.title} certificate`}
                       className="max-h-[150px] md:max-h-[220px] w-auto object-contain pointer-events-none rounded-lg"
                     />
+                  ) : cert.id === "linux-unhatched" ? (
+                    <LinuxUnhatchedCertificate />
                   ) : (
                     <ClaudeCodeCertificate />
                   )}

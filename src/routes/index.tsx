@@ -184,7 +184,7 @@ export const Route = createFileRoute("/")({
               "name": "What certifications does Joel Kirubainathan hold?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Joel Kirubainathan is an official ISC2 Candidate actively preparing for professional cybersecurity certifications. He also holds a Claude Code 101 Certificate of Completion from Anthropic, reflecting expertise in AI-assisted development and automated agentic coding workflows."
+                "text": "Joel Kirubainathan is an official ISC2 Candidate actively preparing for professional cybersecurity certifications. He also holds a Linux Unhatched certification from Cisco Networking Academy and a Claude Code 101 Certificate of Completion from Anthropic."
               }
             },
             {
