@@ -4,16 +4,7 @@ import { Github, ShieldAlert, Radar, FileSearch, Key } from "lucide-react";
 import { Section } from "./Section";
 
 const projects = [
-  {
-    title: "Network Vulnerability Scanner",
-    icon: ShieldAlert,
-    category: "Security",
-    description:
-      "Python-based tool for identifying network vulnerabilities and generating actionable security reports.",
-    tech: ["Python", "Nmap", "Socket", "Reporting"],
-    features: ["Service detection", "CVE mapping", "PDF reports"],
-    github: "#",
-  },
+
   {
     title: "Port Scanner",
     icon: Radar,
@@ -22,17 +13,7 @@ const projects = [
       "Python port scanner for network reconnaissance and security assessment with multi-threading.",
     tech: ["Python", "Threading", "Sockets"],
     features: ["TCP/UDP scan", "Banner grabbing", "Fast multi-threaded"],
-    github: "#",
-  },
-  {
-    title: "Security Log Analyzer",
-    icon: FileSearch,
-    category: "Monitoring",
-    description:
-      "Automated log analysis solution for detecting suspicious activities and surfacing security events.",
-    tech: ["Python", "Regex", "Pandas"],
-    features: ["Anomaly detection", "Alerting", "Dashboard export"],
-    github: "#",
+    github: "https://github.com/Joelkirubainathan/Port-Scanner.git",
   },
   {
     title: "Personal Password Wordlist Generator",
