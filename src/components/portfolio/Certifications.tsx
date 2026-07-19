@@ -244,7 +244,9 @@ export function Certifications() {
               }}
               className="absolute inset-0 w-full h-full rounded-2xl border-cyber glass overflow-hidden cursor-grab active:cursor-grabbing select-none"
             >
-              <div className="flex flex-col justify-between gap-4 p-6 md:flex-row md:items-start md:gap-6 md:p-8 h-full">
+              <div className={`flex flex-col justify-between gap-4 p-6 md:flex-row md:items-start md:gap-6 md:p-8 h-full transition-opacity duration-300 ${
+                isTop ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}>
                 {/* Left Content */}
                 <div className="flex-1 text-left flex flex-col md:justify-between md:h-full">
                   <div>
