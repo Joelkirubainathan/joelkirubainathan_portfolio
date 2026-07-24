@@ -4,7 +4,7 @@ import { Section } from "./Section";
 
 const timeline = [
   {
-    year: "2024 — Present",
+    year: "2024",
     title: "ISC2 Candidate Achievement",
     body: "Enrolled as an ISC2 Candidate, building toward professional cybersecurity certifications and deepening foundational security knowledge.",
   },
